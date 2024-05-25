@@ -635,7 +635,7 @@ RectTransform:
   m_AnchorMin: {x: 0.28, y: 0}
   m_AnchorMax: {x: 0.28, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 52, y: 0}
+  m_SizeDelta: {x: 27.002087, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14480019644100917
 MonoBehaviour:
@@ -1769,7 +1769,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.043640137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &368552167068035381
 CanvasRenderer:
@@ -2388,7 +2388,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Orc
+  m_Text: Green
 --- !u!1 &494113304651700359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,7 +3438,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.1875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &666642359376448366
 GameObject:
@@ -3484,7 +3484,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 51.999977, y: 0}
+  m_SizeDelta: {x: 27.002075, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &690179915630209252
 CanvasRenderer:
@@ -3683,7 +3683,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.043640137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807821297232165327
 MonoBehaviour:
@@ -5892,7 +5892,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Orc
+  m_Text: Type 1
 --- !u!224 &1204750643923302959
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7233,7 +7233,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.043640137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1647009795317877196
 GameObject:
@@ -9013,7 +9013,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Orc
+  m_Text: Skinny
 --- !u!224 &2106475608857407836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11765,7 +11765,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 97b5e2a7b54a16241bd9675ddf5c1b3e, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 1, g: 1, b: 1, a: 1}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
@@ -18408,7 +18420,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Orc
+  m_Text: Red
 --- !u!1 &5053378138754896171
 GameObject:
   m_ObjectHideFlags: 0
@@ -19427,7 +19439,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.043640137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &5209121157014209135
 RectTransform:
@@ -20252,7 +20264,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.07763672, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &5568746497499148932
 RectTransform:
@@ -22136,7 +22148,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.07763672, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6269241828645655631
 GameObject:
@@ -28525,7 +28537,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.07763672, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8737200333944887283
 MonoBehaviour:
