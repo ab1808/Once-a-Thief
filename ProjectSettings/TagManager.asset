@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - NpcRoaming
   - Door
+  - Potion
   layers:
   - Default
   - TransparentFX
