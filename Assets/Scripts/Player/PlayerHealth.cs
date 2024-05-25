@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public string playerName;
     public float health = 100;
     public Slider healthBar;
 
@@ -12,6 +13,11 @@ public class PlayerHealth : MonoBehaviour
     {
         health = 100;
         healthBar.value = health / 100;
+    }
+    
+    public void UpdatePlayerName(string name)
+    {
+        playerName = name;
     }
 
     void Update()
