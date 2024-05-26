@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -7,7 +8,8 @@ namespace UI
 	{
 		public Canvas pauseMenuCanvas;
 
-		private bool isPaused = false;
+        public Slider volumeSlider;
+        private bool isPaused = false;
 		private bool wasEscapePressed = false;
 		private bool isPauseMenuCanvasNotNull;
 
@@ -23,7 +25,10 @@ namespace UI
 			{
 				Debug.LogWarning("PauseMenuCanvas is not assigned!");
 			}
-		}
+
+            volumeSlider.onValueChanged.AddListener(SetVolume);
+            volumeSlider.value = AudioListener.volume;
+        }
 
 		private void Update()
 		{
@@ -52,6 +57,11 @@ namespace UI
 			}
 		}
 
- 
+        public void SetVolume(float volume)
+        {
+            AudioListener.volume = volume;
+        }
+
+
     }
 }
