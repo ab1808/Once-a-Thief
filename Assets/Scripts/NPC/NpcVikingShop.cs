@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace NPC
 {
@@ -10,6 +11,11 @@ namespace NPC
 			Debug.Log("Interacting with Viking Shop");
 			//Open Shop UI
 			shopUI.SetActive(true);
+			if (Keyboard.current.fKey.wasPressedThisFrame)
+			{
+				//Close Shop UI
+				shopUI.SetActive(false);
+			}
 		}
 	}
 }
