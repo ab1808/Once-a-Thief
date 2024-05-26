@@ -15,6 +15,7 @@ TagManager:
   - sword
   - potionMaker
   - treasureChest
+  - obstacle
   layers:
   - Default
   - TransparentFX
