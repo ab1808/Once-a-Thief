@@ -9,10 +9,13 @@ public class EnemyHealth : MonoBehaviour
     public Animator anim;
     public AudioSource deathSound;
     public AudioSource hurtSound;
+
+    public bool isDead = false;
         
     private void Start()
     {
         enemyHealth = 100;
+        isDead = false;
     }
     
     public void TakeDamage(int damage)
@@ -21,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log(enemyHealth);
         if(enemyHealth <= 0)
         {
+            isDead = true;
             anim.SetTrigger("Death");
             Destroy(this.gameObject);
         }
