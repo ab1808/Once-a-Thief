@@ -14,26 +14,26 @@ namespace Player
         [SerializeField] private Transform cameraTransform;
 
         // Non-Adjustable Variables
-        private float _ySpeed;
-        private Vector3 _velocity;
-        private Vector3 _moveDirection;
+        private float ySpeed;
+        private Vector3 velocity;
+        private Vector3 moveDirection;
 
         // Jump Grace Time
         [SerializeField] private float jumpButtonGracePeriod;
-        private float? _lastGroundedTime;
-        private float? _jumpButtonPressedTime;
+        private float? lastGroundedTime;
+        private float? jumpButtonPressedTime;
 
         // Booleans
         public bool sprintPressed;
         public bool movePressed;
         public bool jumpPressed;
-        private bool _isJumping;
-        private bool _isGrounded;
+        private bool isJumping;
+        private bool isGrounded;
 
         // References
-        private CharacterController _characterController;
+        private CharacterController characterController;
         public Animator animator;
-        private PlayerInputMap _playerInputMap;
+        private PlayerInputMap playerInputMap;
 
         // Animation IDs
         private static readonly int InputMagnitude = Animator.StringToHash("InputMagnitude");
@@ -49,28 +49,29 @@ namespace Player
         {
             this.cameraTransform = cameraTransform;
             this.jumpButtonGracePeriod = jumpButtonGracePeriod;
-            this._isJumping = isJumping;
+            this.isJumping = isJumping;
         }
 
         private void Awake()
         {
-            _playerInputMap = new PlayerInputMap();
+            Cursor.visible = false;
+            playerInputMap = new PlayerInputMap();
         }
 
         private void Start()
         {
-            _characterController = GetComponent<CharacterController>();
+            characterController = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
         }
 
         private void OnEnable()
         {
-            _playerInputMap.Enable();
+            playerInputMap.Enable();
         }
 
         private void OnDisable()
         {
-            _playerInputMap.Disable();
+            playerInputMap.Disable();
         }
 
         private void Update()
@@ -81,13 +82,13 @@ namespace Player
 
         private void Move()
         {
-            sprintPressed = _playerInputMap.Player.Sprint.IsPressed(); // Sprint Buttons
+            sprintPressed = playerInputMap.Player.Sprint.IsPressed(); // Sprint Buttons
 
-            Vector2 movementInput = _playerInputMap.Player.Move.ReadValue<Vector2>(); // WASD or movement
+            Vector2 movementInput = playerInputMap.Player.Move.ReadValue<Vector2>(); // WASD or movement
         
-            _moveDirection = new Vector3(movementInput.x, 0, movementInput.y).normalized;
+            moveDirection = new Vector3(movementInput.x, 0, movementInput.y).normalized;
 
-            float inputMagnitude = _moveDirection.magnitude; 
+            float inputMagnitude = moveDirection.magnitude; 
             inputMagnitude = Mathf.Clamp01(inputMagnitude); // Keeping the value of magnitude below 1.
 
             // Animator blend tree movement input calculation
@@ -97,11 +98,11 @@ namespace Player
             currentSpeed = Mathf.Clamp01(currentSpeed / joggingSpeed); 
 
             // Apply movement
-            _characterController.Move(transform.TransformDirection(_moveDirection) * (currentSpeed * joggingSpeed * Time.deltaTime));
+            characterController.Move(transform.TransformDirection(moveDirection) * (currentSpeed * joggingSpeed * Time.deltaTime));
 
             // Set footstep sounds
-            footstepsSound.enabled = currentSpeed > 0 && !sprintPressed && _isGrounded;
-            runningSound.enabled = currentSpeed > 0 && sprintPressed && _isGrounded;
+            footstepsSound.enabled = currentSpeed > 0 && !sprintPressed && isGrounded;
+            runningSound.enabled = currentSpeed > 0 && sprintPressed && isGrounded;
 
             // Set animator parameter "speed" for blend tree transition
             animator.SetFloat(Speed, currentSpeed); // Set the "speed" parameter of the blend tree
@@ -111,31 +112,31 @@ namespace Player
 
         private void Jumping()
         {
-            jumpPressed = _playerInputMap.Player.Jump.IsPressed();
+            jumpPressed = playerInputMap.Player.Jump.IsPressed();
         
-            if (_characterController.isGrounded && _velocity.y < 0)
+            if (characterController.isGrounded && velocity.y < 0)
             {
-                _velocity.y = -2f;
-                _isGrounded = true;
+                velocity.y = -2f;
+                isGrounded = true;
                 animator.SetBool(IsGrounded, true);
                 animator.SetBool(IsJumping, false); // Reset jumping animation
                 animator.SetBool(IsFalling, false); // Reset falling animation
             }
             else
             {
-                _isGrounded = false;
+                isGrounded = false;
                 animator.SetBool(IsGrounded, false);
             }
 
-            _velocity.y += gravity * Time.deltaTime;
-            _characterController.Move(_velocity * Time.deltaTime);
+            velocity.y += gravity * Time.deltaTime;
+            characterController.Move(velocity * Time.deltaTime);
 
             // Jump Logic
-            if (jumpPressed && _characterController.isGrounded)
+            if (jumpPressed && characterController.isGrounded)
             {
-                _velocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
+                velocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
                 animator.SetBool(IsJumping, true);
-                _isJumping = true;
+                isJumping = true;
             }
         }
 
@@ -148,20 +149,14 @@ namespace Player
 
         private void Rotate()
         {
-            Vector2 rotationInput = _playerInputMap.Player.Camera.ReadValue<Vector2>(); // Get camera rotation input
+            Vector2 rotationInput = playerInputMap.Player.Camera.ReadValue<Vector2>(); // Get camera rotation input
 
             if (rotationInput != Vector2.zero)
             {
-                // Rotate the player character around y-axis
-                var playerTransform = transform;
-                Vector3 playerEuler = playerTransform.eulerAngles;
-                playerEuler.y += rotationInput.x * rotationSpeed * Time.deltaTime;
-                playerTransform.eulerAngles = playerEuler;
-
-                // Rotate the camera around x-axis
-                Vector3 cameraEuler = cameraTransform.eulerAngles;
-                cameraEuler.x -= rotationInput.y * rotationSpeed * Time.deltaTime;
-                cameraTransform.eulerAngles = cameraEuler;
+                var transform1 = transform;
+                Vector3 euler = transform1.eulerAngles;
+                euler.y += rotationInput.x * rotationSpeed * Time.deltaTime;
+                transform1.eulerAngles = euler;
             }
         }
     }
