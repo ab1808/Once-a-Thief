@@ -16,6 +16,9 @@ TagManager:
   - potionMaker
   - treasureChest
   - obstacle
+  - health potion
+  - jump potion
+  - speed potion
   layers:
   - Default
   - TransparentFX

@@ -7,24 +7,24 @@ public class Weapon : MonoBehaviour
     public int damage;
 
     BoxCollider triggerBox;
+    private PlayerCombat playerCombat;
 
     void Start()
     {
         triggerBox = GetComponent<BoxCollider>();
+        playerCombat = GetComponentInParent<PlayerCombat>(); // Get reference to PlayerCombat
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger enter");
-        //var enemy = other.gameObject.GetComponent<Enemy>();
-        //if (enemy != null)
+        if (playerCombat != null && playerCombat.IsAttacking())
         {
-            //enemy.health -= damage;
-            //if (enemy.health <= 0)
-            {
-                //Destroy(enemy.gameObject);
-            }
+            var enemy = other.gameObject.GetComponent<EnemyHealth>();
 
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
         }
     }
 

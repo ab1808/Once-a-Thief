@@ -12,12 +12,13 @@ public class PlayerCombat : MonoBehaviour
     Animator anim;
     [SerializeField] Weapon weapon;
 
+    private bool isAttacking = false; // Add this flag
+
     void Start()
     {
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -39,6 +40,7 @@ public class PlayerCombat : MonoBehaviour
                 anim.Play("Attack", 0);
                 weapon.damage = combo[i].damage;
                 lastClickedTime = Time.time;
+                isAttacking = true; // Set the flag when an attack is initiated
             }
         }
     }
@@ -54,6 +56,7 @@ public class PlayerCombat : MonoBehaviour
     void EndCombo()
     {
         lastComboEnd = Time.time;
+        isAttacking = false; // Reset the flag when the combo ends
     }
 
     public void OnLightAttack()
@@ -69,5 +72,10 @@ public class PlayerCombat : MonoBehaviour
     public void OnDefend()
     {
         Attack(2);
+    }
+
+    public bool IsAttacking()
+    {
+        return isAttacking;
     }
 }

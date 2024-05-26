@@ -7,6 +7,8 @@ public class MakePotions : MonoBehaviour
     public PlayerInteractions playerInteractions;
     public AudioSource potionAudio;
     public InventoryManager inventoryManager;
+
+    public string potionName;
     //subtract inventory
 
     void Start()
@@ -21,13 +23,39 @@ public class MakePotions : MonoBehaviour
             (inventoryManager.hotbarItems.ContainsKey("food") || inventoryManager.backpackItems.ContainsKey("food"))
             && Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) < 3f)
         {
-            if((inventoryManager.hotbarItems["food"] >= 2 || inventoryManager.backpackItems["food"] >= 2))
+            switch (potionName)
             {
-                CreatePotion();
+                case "health potion":
+                    if ((inventoryManager.hotbarItems["food"] >= 2 || inventoryManager.backpackItems["food"] >= 2))
+                    {
+                        CreatePotion();
 
-                inventoryManager.RemoveItem("food");
-                inventoryManager.RemoveItem("food");
+                        inventoryManager.RemoveItem("food");
+                        inventoryManager.RemoveItem("food");
+                    }
+                    break;
+
+                case "speed potion":
+                    if ((inventoryManager.hotbarItems["food"] >= 1 || inventoryManager.backpackItems["food"] >= 1))
+                    {
+                        CreatePotion();
+
+                        inventoryManager.RemoveItem("food");
+                    }
+                    break;
+
+                case "jump potion":
+                    if ((inventoryManager.hotbarItems["food"] >= 3 || inventoryManager.backpackItems["food"] >= 3))
+                    {
+                        CreatePotion();
+
+                        inventoryManager.RemoveItem("food");
+                        inventoryManager.RemoveItem("food");
+                        inventoryManager.RemoveItem("food");
+                    }
+                    break;
             }
+            
 
         }
  
@@ -48,7 +76,7 @@ public class MakePotions : MonoBehaviour
     {
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         //add potion to inventory
-        inventoryManager.AddItem("potion");
+        inventoryManager.AddItem(potionName);
     }
 
 

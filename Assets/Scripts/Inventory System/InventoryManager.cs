@@ -48,7 +48,7 @@ public class InventoryManager : MonoBehaviour
 
             switch (currentItem)
             {
-                case "potion":
+                case "health potion":
                     backpackSlots[currentBackpackCount-1].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = icons[1];
                     
                     break;
@@ -60,6 +60,12 @@ public class InventoryManager : MonoBehaviour
                     break;
                 case "shield":
                     backpackSlots[currentBackpackCount - 1].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = icons[4];
+                    break;
+                case "speed potion":
+                    backpackSlots[currentBackpackCount - 1].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = icons[5];
+                    break;
+                case "jump potion":
+                    backpackSlots[currentBackpackCount - 1].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = icons[6];
                     break;
             }
 
@@ -91,7 +97,7 @@ public class InventoryManager : MonoBehaviour
             //update ui on hotbar
             switch (currentItem)
             {
-                case "potion":
+                case "health potion":
                     hotbarSlots[currentHotbarCount-1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = icons[1];
                     break;
                 case "sword":
@@ -102,6 +108,12 @@ public class InventoryManager : MonoBehaviour
                     break;
                 case "shield":
                     hotbarSlots[currentHotbarCount-1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = icons[4];
+                    break;
+                case "speed potion":
+                    hotbarSlots[currentHotbarCount - 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = icons[5];
+                    break;
+                case "jump potion":
+                    hotbarSlots[currentHotbarCount - 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = icons[6];
                     break;
             }
             //update number on hotbar
@@ -127,7 +139,7 @@ public class InventoryManager : MonoBehaviour
     {
         switch (objectTag)
         {
-            case "potion":
+            case "health potion":
                 currentItem = "potion";
                 return currentItem;
             case "sword":
@@ -138,6 +150,12 @@ public class InventoryManager : MonoBehaviour
                 return currentItem;
             case "shield":
                 currentItem = "shield";
+                return currentItem;
+            case "speed potion":
+                currentItem = "speed potion";
+                return currentItem;
+            case "jump potion":
+                currentItem = "jump potion";
                 return currentItem;
         }
 
@@ -155,7 +173,7 @@ public class InventoryManager : MonoBehaviour
             for (int i = 0; i < hotbarSlots.Count; i++)
             {
 
-                if (hotbarSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[1] && currentItem == "potion")
+                if (hotbarSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[1] && currentItem == "health potion")
                 {
                     tempSlot = i;
                     break;
@@ -178,6 +196,19 @@ public class InventoryManager : MonoBehaviour
                     tempSlot = i;
                     break;
                 }
+
+                else if (hotbarSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[5] && currentItem == "speed potion")
+                {
+                    tempSlot = i;
+                    break;
+                }
+
+                else if (hotbarSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[6] && currentItem == "jump potion")
+                {
+                    tempSlot = i;
+                    break;
+                }
+
 
 
             }
@@ -202,7 +233,7 @@ public class InventoryManager : MonoBehaviour
             for (int i = 0; i < hotbarSlots.Count; i++)
             {
 
-                if (backpackSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[1] && currentItem == "potion")
+                if (backpackSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[1] && currentItem == "health potion")
                 {
                     tempSlot = i;
                     break;
@@ -226,6 +257,17 @@ public class InventoryManager : MonoBehaviour
                     break;
                 }
 
+                else if (backpackSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[5] && currentItem == "speed potion")
+                {
+                    tempSlot = i;
+                    break;
+                }
+
+                else if (backpackSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[6] && currentItem == "jump potion")
+                {
+                    tempSlot = i;
+                    break;
+                }
 
             }
             var x = backpackSlots[tempSlot].transform;
@@ -257,7 +299,7 @@ public class InventoryManager : MonoBehaviour
             for (int i = 0; i < hotbarSlots.Count; i++)
             {
 
-                if (hotbarSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[1] && currentItem == "potion")
+                if (hotbarSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[1] && currentItem == "health potion")
                 {
                     tempSlot = i;
                     break;
@@ -281,7 +323,17 @@ public class InventoryManager : MonoBehaviour
                     break;
                 }
 
+                else if (hotbarSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[5] && currentItem == "speed potion")
+                {
+                    tempSlot = i;
+                    break;
+                }
 
+                else if (hotbarSlots[i].transform.GetChild(0).GetComponent<Image>().sprite == icons[6] && currentItem == "jump potion")
+                {
+                    tempSlot = i;
+                    break;
+                }
             }
             var x = hotbarSlots[tempSlot].transform.GetChild(2);
             x.GetChild(0).gameObject.GetComponent<Text>().text = hotbarItems[currentItem].ToString();
@@ -295,7 +347,7 @@ public class InventoryManager : MonoBehaviour
             for (int i = 0; i < hotbarSlots.Count; i++)
             {
 
-                if (backpackSlots[i].transform.GetChild(1).GetComponent<Image>().sprite == icons[1] && currentItem == "potion")
+                if (backpackSlots[i].transform.GetChild(1).GetComponent<Image>().sprite == icons[1] && currentItem == "health potion")
                 {
                     tempSlot = i;
                     break;
@@ -319,6 +371,18 @@ public class InventoryManager : MonoBehaviour
                     break;
                 }
 
+                else if (backpackSlots[i].transform.GetChild(1).GetComponent<Image>().sprite == icons[5] && currentItem == "speed potion")
+                {
+                    tempSlot = i;
+                    break;
+                }
+
+                else if (backpackSlots[i].transform.GetChild(1).GetComponent<Image>().sprite == icons[6] && currentItem == "jump potion")
+                {
+                    tempSlot = i;
+                    break;
+                }
+
 
             }
             var x = backpackSlots[tempSlot].transform;
@@ -335,7 +399,7 @@ public class InventoryManager : MonoBehaviour
 
                 switch (currentItem)
                 {
-                    case "potion":
+                    case "health potion":
                         hotbarSlots[currentHotbarCount - 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = icons[1];
                         break;
                     case "sword":
@@ -346,6 +410,12 @@ public class InventoryManager : MonoBehaviour
                         break;
                     case "shield":
                         hotbarSlots[currentHotbarCount - 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = icons[4];
+                        break;
+                    case "speed potion":
+                        hotbarSlots[currentHotbarCount - 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = icons[5];
+                        break;
+                    case "jump potion":
+                        hotbarSlots[currentHotbarCount - 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = icons[6];
                         break;
                 }
 
@@ -361,7 +431,7 @@ public class InventoryManager : MonoBehaviour
 
                 switch (currentItem)
                 {
-                    case "potion":
+                    case "health potion":
                         backpackSlots[currentBackpackCount - 1].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = icons[1];
 
                         break;
@@ -373,6 +443,12 @@ public class InventoryManager : MonoBehaviour
                         break;
                     case "shield":
                         backpackSlots[currentBackpackCount - 1].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = icons[4];
+                        break;
+                    case "speed potion":
+                        backpackSlots[currentBackpackCount - 1].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = icons[5];
+                        break;
+                    case "jump potion":
+                        backpackSlots[currentBackpackCount - 1].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = icons[6];
                         break;
                 }
 
@@ -392,7 +468,7 @@ public class InventoryManager : MonoBehaviour
 
             if (x.GetChild(0).GetComponent<Image>().sprite == icons[1])
             {
-            return "potion";
+            return "health potion";
             }
 
             else if (x.transform.GetChild(0).GetComponent<Image>().sprite == icons[2])
@@ -409,6 +485,16 @@ public class InventoryManager : MonoBehaviour
             {
             return "shield";
             }
+
+            else if (x.GetChild(0).GetComponent<Image>().sprite == icons[5])
+            {
+                return "speed potion";
+            }
+
+            else if (x.GetChild(0).GetComponent<Image>().sprite == icons[6])
+            {
+                return "jump potion";
+            }
             else
             {
                 return "";
@@ -422,7 +508,7 @@ public class InventoryManager : MonoBehaviour
 
         if (x.GetChild(1).GetComponent<Image>().sprite == icons[1])
         {
-            return "potion";
+            return "health potion";
         }
 
         else if (x.transform.GetChild(1).GetComponent<Image>().sprite == icons[2])
@@ -438,6 +524,16 @@ public class InventoryManager : MonoBehaviour
         else if (x.GetChild(1).GetComponent<Image>().sprite == icons[4])
         {
             return "shield";
+        }
+
+        else if (x.GetChild(1).GetComponent<Image>().sprite == icons[5])
+        {
+            return "speed potion";
+        }
+
+        else if (x.GetChild(1).GetComponent<Image>().sprite == icons[6])
+        {
+            return "jump potion";
         }
         else
         {
