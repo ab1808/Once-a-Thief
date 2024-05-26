@@ -7,7 +7,7 @@ public class PlayerInteractions : MonoBehaviour
     public GameObject promptUI;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Potion")
+        if (other.gameObject.tag == "potionMaker")
         {
             promptUI.SetActive(true);
         }

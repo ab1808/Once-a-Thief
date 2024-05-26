@@ -54,6 +54,7 @@ namespace Player
 
         private void Awake()
         {
+            Cursor.visible = false;
             playerInputMap = new PlayerInputMap();
         }
 

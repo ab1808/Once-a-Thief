@@ -6,6 +6,7 @@ public class MakePotions : MonoBehaviour
 {
     public PlayerInteractions playerInteractions;
     public AudioSource potionAudio;
+    public InventoryManager inventoryManager;
     //subtract inventory
 
     void Start()
@@ -16,7 +17,8 @@ public class MakePotions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && 
+            (inventoryManager.hotbarItems["food"] >= 2 || inventoryManager.backpackItems["food"] >= 2) )
         {
             CreatePotion();
         }
@@ -27,6 +29,8 @@ public class MakePotions : MonoBehaviour
     {
         playerInteractions.promptUI.SetActive(false);
         //decrement inventory
+        inventoryManager.RemoveItem("food");
+        inventoryManager.RemoveItem("food");
         potionAudio.Play();
         //show particle effects
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -37,6 +41,7 @@ public class MakePotions : MonoBehaviour
     {
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         //add potion to inventory
+        inventoryManager.AddItem("potion");
     }
 
 
