@@ -9,6 +9,11 @@ TagManager:
   - Enemy
   - NpcRoaming
   - Door
+  - potion
+  - food
+  - shield
+  - sword
+  - potionMaker
   layers:
   - Default
   - TransparentFX
