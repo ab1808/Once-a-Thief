@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DungeonCount : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class DungeonCount : MonoBehaviour
         {
             //quest complete
             questManager.UpdateStoryLevelProgression(100, QuestType.Side);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             chestsCollected = 0;
         }
     }

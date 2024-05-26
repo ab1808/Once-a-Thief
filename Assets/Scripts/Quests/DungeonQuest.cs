@@ -10,7 +10,7 @@ public class DungeonQuest : MonoBehaviour
     public AudioSource chestOpenAudio;
     string item;
     private List<string> items = 
-        new List<string> { "food", "shield", "food", "food", "sword", "potion", "potion", "potion", "shield", "food"};
+        new List<string> { "food", "shield", "food", "food", "sword", "health potion", "speed potion", "jump potion", "shield", "food"};
 
     void Update()
     {
