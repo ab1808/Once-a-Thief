@@ -518,8 +518,8 @@ GameObject:
   - component: {fileID: 1843042419}
   - component: {fileID: 1843042418}
   m_Layer: 0
-  m_Name: GenderManager
-  m_TagString: gender
+  m_Name: HairManager
+  m_TagString: hair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,7 +536,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbb7eaf6d86e1148a9706e165c01681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gender: 
+  text: {fileID: 5053378138754896169}
+  hairMaterials:
+  - {fileID: 2100000, guid: 49768594030a6ac49b7c607a398df4d0, type: 2}
+  - {fileID: 2100000, guid: 9b512dedf13407b43afb19136c56c1cc, type: 2}
+  - {fileID: 2100000, guid: c0601c5e4aeb11f4bb5a94775f92678d, type: 2}
+  - {fileID: 2100000, guid: 153b65aa7bec1ab42b9957c77a357d5f, type: 2}
+  selectedMaterialIndex: 0
+  selectedMaterial: 
 --- !u!4 &1843042419
 Transform:
   m_ObjectHideFlags: 0
@@ -3670,7 +3677,7 @@ RectTransform:
   m_Father: {fileID: 7599324988361715435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7560,7 +7567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1768276790021786680
 GameObject:
   m_ObjectHideFlags: 0
@@ -18319,13 +18326,27 @@ MonoBehaviour:
     m_Options:
     - m_Text: Red
       m_Image: {fileID: 0}
-    - m_Text: Black
+    - m_Text: White
       m_Image: {fileID: 0}
-    - m_Text: Green
+    - m_Text: Blonde
+      m_Image: {fileID: 0}
+    - m_Text: Brown
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1843042418}
+        m_TargetAssemblyTypeName: CharacterCustomization, Assembly-CSharp
+        m_MethodName: UpdateHair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0
 --- !u!114 &5071386061283091448
 MonoBehaviour:
@@ -19868,7 +19889,7 @@ RectTransform:
   m_Father: {fileID: 7599324988361715435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

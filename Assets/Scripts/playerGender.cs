@@ -1,22 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerGender : MonoBehaviour
+public class playerHairColor : MonoBehaviour
 {
     public CharacterCustomization custom;
+    public Renderer objectRenderer;
     void Start()
     {
-        custom = GameObject.FindGameObjectWithTag("gender").GetComponent<CharacterCustomization>();
-
-        if(custom.gender == "female")
-        {
-            transform.GetChild(1).gameObject.SetActive(false);
-        }
-        else
-        {
-            transform.GetChild(3).gameObject.SetActive(false);
-        }
+        custom = GameObject.FindGameObjectWithTag("hair").GetComponent<CharacterCustomization>();
+        //objectRenderer.material = materials[index];
+        objectRenderer.material = custom.hairMaterials[custom.selectedMaterialIndex];
     }
 
 }
