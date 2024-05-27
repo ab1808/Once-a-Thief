@@ -35,7 +35,7 @@ namespace Controllers.UI
             if (time > _timeWhenToLoad)
             {
                 _loadingStarted = true;
-                StartCoroutine(LoadScene(gameSceneIndex));
+                //StartCoroutine(LoadScene(gameSceneIndex));
             }
             else if (initDelay > 0 && delaySliderValue > 0)
             {
@@ -43,7 +43,7 @@ namespace Controllers.UI
             }
         }
 
-        private IEnumerator LoadScene(int index)
+        /*private IEnumerator LoadScene(int index)
         {
             var loadSceneAsync = SceneManager.LoadSceneAsync(index);
             while (!loadSceneAsync.isDone)
@@ -51,7 +51,7 @@ namespace Controllers.UI
                 loadingSlider.value = loadSceneAsync.progress + delaySliderValue;
                 yield return null;
             }
-        }
+        }*/
 
         private void OnEnable()
         {
