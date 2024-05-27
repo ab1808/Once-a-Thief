@@ -19,6 +19,7 @@ TagManager:
   - health potion
   - jump potion
   - speed potion
+  - hair
   layers:
   - Default
   - TransparentFX

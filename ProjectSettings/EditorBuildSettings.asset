@@ -6,20 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/IntroCutScene.unity
-    guid: a26275c51d1768f4e93d197c85860fcd
-  - enabled: 0
-    path: Assets/Scenes/StartScreen.unity
-    guid: 5a306d8720adb52489a397125aa8a63d
-  - enabled: 0
-    path: Assets/Scenes/CharacterCustomization.unity
-    guid: 662c39cbefcde794b9805fc2f3522f5a
-  - enabled: 0
-    path: Assets/Scenes/MainGame.unity
-    guid: 03ea4d215f6d8204395107589a367a4e
-  - enabled: 0
     path: Assets/Scenes/GameOverScene.unity
     guid: 381dbb2d4a6e30d4eb0ae8c1b4f4d35e
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: de6a0807443268b439538bb9f9b43c87
   - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: f48a4471f86145d4fb4dadead33cb499
