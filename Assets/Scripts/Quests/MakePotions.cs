@@ -13,13 +13,15 @@ public class MakePotions : MonoBehaviour
 
     void Start()
     {
-        
+        var x = GameObject.FindGameObjectWithTag("Player");
+        playerInteractions = x.GetComponent<PlayerInteractions>();
+        inventoryManager = x.GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && 
+        if (Input.GetKeyDown(KeyCode.T) && 
             (inventoryManager.hotbarItems.ContainsKey("food") || inventoryManager.backpackItems.ContainsKey("food"))
             && Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) < 3f)
         {

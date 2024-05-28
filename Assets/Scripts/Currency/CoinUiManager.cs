@@ -9,6 +9,7 @@ using TMPro;
 
 		void Start()
 		{
+			DontDestroyOnLoad(gameObject);
 			if (coinManager != null)
 			{
 				coinManager.onCoinCountChanged += UpdateCoinUI;

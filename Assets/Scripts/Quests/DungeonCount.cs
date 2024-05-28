@@ -10,7 +10,7 @@ public class DungeonCount : MonoBehaviour
     public QuestManager questManager;
     void Start()
     {
-        chestsCollected = 0;
+
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class DungeonCount : MonoBehaviour
         {
             //quest complete
             questManager.UpdateStoryLevelProgression(100, QuestType.Side);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             chestsCollected = 0;
         }
     }

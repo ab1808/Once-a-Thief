@@ -12,6 +12,9 @@ public class DungeonQuest : MonoBehaviour
     private List<string> items = 
         new List<string> { "food", "shield", "food", "food", "sword", "health potion", "speed potion", "jump potion", "shield", "food"};
 
+    private void Start()
+    {
+    }
     void Update()
     {
         if(Input.GetKey(KeyCode.E) && 

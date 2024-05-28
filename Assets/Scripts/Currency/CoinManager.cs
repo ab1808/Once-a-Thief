@@ -10,6 +10,7 @@ using UnityEngine;
 
 		private void Start()
 		{
+			DontDestroyOnLoad(gameObject);
 			coinCount = 1000; // Initial coin count
 			onCoinCountChanged?.Invoke(coinCount);
 		}

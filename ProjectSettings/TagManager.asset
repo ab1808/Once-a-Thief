@@ -20,6 +20,9 @@ TagManager:
   - jump potion
   - speed potion
   - hair
+  - PlayerParent
+  - nextScene
+  - questSystem
   layers:
   - Default
   - TransparentFX

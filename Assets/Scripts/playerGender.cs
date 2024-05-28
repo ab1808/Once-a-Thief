@@ -9,6 +9,7 @@ public class playerHairColor : MonoBehaviour
     public Renderer objectRenderer;
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         custom = GameObject.FindGameObjectWithTag("hair").GetComponent<CharacterCustomization>();
         //objectRenderer.material = materials[index];
         objectRenderer.material = custom.hairMaterials[custom.selectedMaterialIndex];

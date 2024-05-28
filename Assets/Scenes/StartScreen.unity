@@ -759,8 +759,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 4132790521761728763}
   progressBar: {fileID: 2702071848685249}
-  sceneAddresses:
-  - Assets/Scenes/Dungeon.unity
+  assetReferences:
+  - m_AssetGUID: 8f864f22202b0ab4b8d6509bb498621b
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   loginSceneName: Login
 --- !u!4 &1756186871
 Transform:

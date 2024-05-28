@@ -11,6 +11,7 @@ namespace UI
 
         private void Start()
         {
+			DontDestroyOnLoad(gameObject);
 #if UNITY_STANDALONE || UNITY_EDITOR
 			foreach (var ui in mobileUI)
 			{

@@ -131,7 +131,9 @@ public class InventoryManager : MonoBehaviour
         currentItem = CheckItem(tag);
         if(currentItem != ""){
             AddItem(currentItem);
+            Destroy(other.gameObject);
         }
+        
         
         
     }
@@ -140,7 +142,7 @@ public class InventoryManager : MonoBehaviour
         switch (objectTag)
         {
             case "health potion":
-                currentItem = "potion";
+                currentItem = "health potion";
                 return currentItem;
             case "sword":
                 currentItem = "sword";
